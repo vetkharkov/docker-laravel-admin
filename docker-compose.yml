@@ -1,0 +1,61 @@
+version: '2'
+services:
+  nginx:
+        build:
+            context: ./
+            dockerfile: docker/nginx.docker
+        volumes:
+            - ./:/var/www
+        ports:
+            - "8888:80"
+        links:
+            - php-fpm
+  php-fpm:
+        build:
+            context: ./
+            dockerfile: docker/php-fpm.docker
+        volumes:
+            - ./:/var/www
+        links:
+            - mysql
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=mysql"
+  php-cli:
+        build:
+            context: ./
+            dockerfile: docker/php-cli.docker
+        volumes:
+            - ./:/var/www
+        links:
+            - mysql
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=mysql"
+        tty: true    
+  mysql:
+        image: mysql:5.7
+        volumes:
+            - ./storage/docker/mysql:/var/lib/mysql
+        environment:
+            - "MYSQL_ROOT_PASSWORD=secret"
+            - "MYSQL_USER=vet"
+            - "MYSQL_PASSWORD=secret"
+            - "MYSQL_DATABASE=laravel_db"
+        ports:
+            - "33063:3306"
+  adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 6565:8080
+  
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+#Запуск Docker
+make docker-up
+
+#Вход
+http://localhost:8888/
+
+#Запуск контейнера для выполнения bash комманд
+docker exec -ti admin_php-cli_1 php artisan -V
+
+#Вход в контейнер для работы в терминале
+docker exec -i -t e90e9e689a80 /bin/bash
+
+#login & password
+vetkharkov
+12345678
+
+################### ПЕРЕМЕЩЕНИЕ МОДЕЛЕЙ ####################
+
+Решение для Laravel 5 +
+1. Переместите файлы в новый каталог
+Предположим, вы хотите переместить модели на app/Models
+
+2. Измените пространство имен моделей
+Для каждого изменения модели:
+
+namespace App;
+to
+namespace App\Models;
+
+3. Измените ссылки в других файлах
+Проверьте эти файлы
+
+app/Http/Controllers/Auth/RegisterController.php
+config/auth.php
+config/services.php
+database/factories/ModelFactory.php
+Ваши контроллеры
+И измените App/ModelExample на App/Models/ModelExample
+
+4. Файлы автозагрузки
+Выполнить composer dump-autoload
+
+5. Поздравляем!
+
+
+Добавить "app/models" в раздел автозагрузки classmap composer.json
+
+"autoload": {
+    "classmap": [
+        "database",
+        "app/models"
+    ]
+}
+###################################################################
+
+php artisan storage:link
+php artisan migrate:fresh --seedphp artisan migrate:fresh --seed
+
+
