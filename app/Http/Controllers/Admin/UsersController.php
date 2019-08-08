@@ -112,10 +112,10 @@ class UsersController extends Controller
             'name'        => $request['name'],
             'email'       => $request['email'],
             'old_images'  => $request['old_images'],
-            'password'  => $request['password'],
+            'password'    => $request['password'],
 
         ];
-
+//dd($user->password);
         //Upload Image
 
         if ($request->hasFile('avatar')) {
@@ -136,7 +136,7 @@ class UsersController extends Controller
 
         //Password
 
-        if(isset($input['password'])) {
+        if(isset($input['password']) && $input['password'] != $user->password) {
             $input['password'] = bcrypt($input['password']);
         }
 

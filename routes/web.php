@@ -31,16 +31,6 @@ Route::group([
 
     Route::resource('user', 'Admin\UsersController');
 
-//    // Image
-    Route::get('/images-all','Admin\FileController@index')->name('allfile');
-    Route::get('/images-user/{id}','Admin\FileController@show')->name('showimages');
-//
-    Route::get('/image/upload','Admin\FileController@create')->name('formfile');
-    Route::post('/image/upload','Admin\FileController@store')->name('uploadfile');
-//
-    Route::post('/image/dropzone','Admin\FileController@dropzone')->name('dropzone');
-    // Delete image
-    Route::delete('/file/{id}','Admin\FileController@destroy')->name('deletefile');
 
 });
 

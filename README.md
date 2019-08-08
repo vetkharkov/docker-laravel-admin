@@ -1,4 +1,5 @@
 # docker-laravel-admin
+
 #Запуск Docker
 make docker-up
 
@@ -8,5 +9,6 @@ php artisan migrate:fresh --seed
 http://localhost:8888
 
 user:vetkharkov
+
 password:secret
 

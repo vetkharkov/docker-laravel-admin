@@ -30,7 +30,7 @@
                                 <span class="badge badge-dot badge-danger"></span>
                             @endif
 
-                            <a class="avatar avatar-lg status-success" href="{{ route('allfile') }}">
+                            <a class="avatar avatar-lg status-success" href="">
                                 <img src="{{ '/uploads/avatars/' . $user->avatar }}" alt="{{ $user->name }}">
                             </a>
 
@@ -62,8 +62,6 @@
                                                 class="fa fa-fw fa-user"></i> Profile</a>
                                         <a class="dropdown-item" href="{{ route('user.edit', $user->id) }}"><i
                                                 class="fa fa-fw fa-edit"></i> Edit</a>
-                                        <a class="dropdown-item" href="{{ route('showimages', $user->id) }}"><i class="fa fa-fw fa-image"></i> Images</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
                                         <div class="dropdown-divider"></div>
 
                                         <a class="dropdown-item" href="javascript:void(0);" onclick="$(this).find('form').submit();" >
