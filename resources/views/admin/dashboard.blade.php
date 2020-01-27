@@ -5,7 +5,7 @@
 @endsection
 
 @section('dashboard')
-    @include('admin.dashboard-index')
+    @include('admin.dashboard-content')
 @endsection
 
 @section('content')

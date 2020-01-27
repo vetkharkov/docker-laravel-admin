@@ -4,8 +4,8 @@
             <div class="box box-body">
                 <h6 class="text-uppercase">User registration</h6>
                 <div class="flexbox mt-2">
-                    <span class="fa fa-user-plus font-size-40 text-primary"></span>
-                    <a href=" {{ route('user.index') }}"><span class=" font-size-30">{{ $users->count() }}</span></a>
+                    <a href="{{ route('user.index') }}"><span class="fa fa-user-plus font-size-40 text-primary"></span></a>
+                    <a href="{{ route('user.index') }}"><span class=" font-size-30">{{ $users->count() }}</span></a>
                 </div>
             </div>
         </div>

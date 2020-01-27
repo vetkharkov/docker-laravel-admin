@@ -30,7 +30,13 @@
                                 <span class="badge badge-dot badge-danger"></span>
                             @endif
 
-                            <a class="avatar avatar-lg status-success" href="">
+                            <a
+                                @if(Cache::has('user-is-online-' . $user->id))
+                                    class="avatar avatar-lg status-success"
+                                @else
+                                    class="avatar avatar-lg status-danger"
+                                @endif
+                            href="">
                                 <img src="{{ '/uploads/avatars/' . $user->avatar }}" alt="{{ $user->name }}">
                             </a>
 
@@ -50,10 +56,16 @@
                             </div>
 
                             <div class="media-right gap-items">
-                                <a class="media-action lead" href="#" data-toggle="tooltip" title="Orders"><i
-                                        class="ti-shopping-cart"></i></a>
-                                <a class="media-action lead" href="#" data-toggle="tooltip" title="Receipts"><i
-                                        class="ti-receipt"></i></a>
+                                <a class="media-action lead" href="777" data-toggle="tooltip" title="Login"  onclick="event.preventDefault();document.getElementById('login-{{ $user->id }}').submit();"><i
+                                        class="fa fa-key"></i></a>
+                                <form id="login-{{ $user->id }}" action="{{ route('xxx') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="userId" value="{{ $user->id }}">
+                                </form>
+
+                                <a class="media-action lead" href="{{ route('user.show', $user->id) }}" data-toggle="tooltip" title="Profile"><i
+                                        class="fa fa-fw fa-user"></i></a>
+
                                 <div class="btn-group">
                                     <a class="media-action lead" href="#" data-toggle="dropdown"><i
                                             class="ion-android-more-vertical"></i></a>

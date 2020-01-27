@@ -51,4 +51,11 @@ class User extends Authenticatable
         return Cache::has('user-is-online-' . $this->id);
     }
 
+    /**
+     *Связь "Многие ко многим"
+     */
+    public function tests() {
+        return $this->belongsToMany('App\Models\Test', 'test_user');
+    }
+
 }

@@ -22,13 +22,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-//        echo __METHOD__;
-
         $users = User::all();
-
-//        dd($users->count());
-
-//        Storage::disk('local')->put('file777.txt', 'Contents');
 
         return view('admin.dashboard', compact('users'));
     }

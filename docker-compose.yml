@@ -7,7 +7,7 @@ services:
         volumes:
             - ./:/var/www
         ports:
-            - "8888:80"
+            - "7780:80"
         links:
             - php-fpm
   php-fpm:
@@ -32,7 +32,7 @@ services:
         environment:
             - "DB_PORT=3306"
             - "DB_HOST=mysql"
-        tty: true    
+        tty: true
   mysql:
         image: mysql:5.7
         volumes:
@@ -48,8 +48,8 @@ services:
         image: adminer
         restart: always
         ports:
-            - 6565:8080
-  
+            - 6575:8080
+
 
 
 

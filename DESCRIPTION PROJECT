@@ -2,7 +2,7 @@
 make docker-up
 
 #Вход
-http://localhost:8888/
+http://localhost:7780/
 
 #Запуск контейнера для выполнения bash комманд
 docker exec -ti admin_php-cli_1 php artisan -V
@@ -55,6 +55,10 @@ database/factories/ModelFactory.php
 
 php artisan storage:link
 php artisan migrate:fresh --seed
+php artisan make:migration create_users_table
+php artisan migrate:reset
+
+php artisan make:model Models/Test
 
 
 

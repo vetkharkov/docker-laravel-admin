@@ -15,6 +15,14 @@ use Auth;
 
 class UsersController extends Controller
 {
+    public function userAuth($id)
+    {
+        dd($id);
+        Auth::loginUsingId($id);
+
+        return redirect()->back();
+    }
+
     /**
      * Display a listing of the resource.
      *
