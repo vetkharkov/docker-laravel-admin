@@ -1,9 +1,10 @@
-version: '2'
+version: '3'
 services:
   nginx:
         build:
             context: ./
             dockerfile: docker/nginx.docker
+        container_name: nginx    
         volumes:
             - ./:/var/www
         ports:
@@ -14,6 +15,7 @@ services:
         build:
             context: ./
             dockerfile: docker/php-fpm.docker
+        container_name: php-fpm    
         volumes:
             - ./:/var/www
         links:
@@ -25,6 +27,7 @@ services:
         build:
             context: ./
             dockerfile: docker/php-cli.docker
+        container_name: php-cli    
         volumes:
             - ./:/var/www
         links:
@@ -35,6 +38,7 @@ services:
         tty: true
   mysql:
         image: mysql:5.7
+        container_name: db
         volumes:
             - ./storage/docker/mysql:/var/lib/mysql
         environment:
@@ -46,7 +50,9 @@ services:
             - "33063:3306"
   adminer:
         image: adminer
-        restart: always
+        container_name: adminer
+        restart: unless-stopped
+        tty: true
         ports:
             - 6575:8080
 

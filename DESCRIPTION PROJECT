@@ -5,10 +5,10 @@ make docker-up
 http://localhost:7780/
 
 #Запуск контейнера для выполнения bash комманд
-docker exec -ti admin_php-cli_1 php artisan -V
+docker exec -ti php-cli php artisan -V
 
 #Вход в контейнер для работы в терминале
-docker exec -i -t e90e9e689a80 /bin/bash
+docker exec -ti 9f81e1d46737 /bin/bash
 
 #login & password
 vetkharkov
