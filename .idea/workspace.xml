@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3a7c21c-913d-47e3-b699-38894743460e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/docker-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/docker-laravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESCRIPTION PROJECT" beforeDir="false" afterPath="$PROJECT_DIR$/DESCRIPTION PROJECT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-cli.docker" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-cli.docker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-01-27.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2020-01-27.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php-fpm.docker" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm.docker" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,17 +77,17 @@
       <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="105">
+              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="php-fpm.docker" pinned="false" current-in-tab="false">
+      <file leaf-file-name="php-fpm.docker" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker/php-fpm.docker">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="450">
+              <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -108,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DESCRIPTION PROJECT" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DESCRIPTION PROJECT" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DESCRIPTION PROJECT">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="10" column="34" selection-start-line="10" selection-end-line="11" />
+            <state relative-caret-position="15">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -227,10 +220,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Site/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/site/user/statistic.blade.php" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/docker/php-fpm.docker" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/DESCRIPTION PROJECT" />
+        <option value="$PROJECT_DIR$/docker/php-fpm.docker" />
       </list>
     </option>
   </component>
@@ -515,12 +508,12 @@
       <workItem from="1579376639863" duration="117000" />
       <workItem from="1580135392045" duration="2066000" />
       <workItem from="1580159901941" duration="4403000" />
-      <workItem from="1580620314445" duration="411000" />
+      <workItem from="1580620314445" duration="2179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285942000" />
+    <option name="totallyTimeSpent" value="287710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -541,8 +534,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32744783" />
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3130016" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2283214" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3130016" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2283214" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="Database" order="4" weight="0.17740652" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
@@ -826,20 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/php-fpm.docker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://567f722c-50ac-4e9c-a33e-35c876eef395/schema/laravel_db/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -866,8 +845,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DESCRIPTION PROJECT">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="10" column="34" selection-start-line="10" selection-end-line="11" />
+        <state relative-caret-position="15">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/php-fpm.docker">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
         </state>
       </provider>
     </entry>
