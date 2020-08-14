@@ -1,6 +1,7 @@
 # docker-laravel-admin
-    
-#Запуск Docker
+# Тесты таблицы умножения
+# для детей 1-4 классов
+# Запуск Docker
     
 make docker-up
     
