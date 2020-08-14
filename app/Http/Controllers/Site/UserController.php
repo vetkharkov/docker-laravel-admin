@@ -44,6 +44,7 @@ class UserController extends SiteController
 //        foreach ($tests as $flight) {
 //            echo $flight->name.'<br>';
 //        }
+        dd(Auth::user()->isAdministrator());
 
         $users = User::has('tests')->get();
         foreach ($users as $user) {

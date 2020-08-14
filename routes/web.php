@@ -4,6 +4,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/tablica', 'Site\TestController@tablica')->name('tablica');
+
+
 //Route::get('/auth-user/{$abc}', function ($idUser) {
 //
 //    dd($idUser);
@@ -29,7 +32,6 @@ Route::group([
     Route::get('/test-multiplication', 'Site\TestController@index')->name('test-mult');
     Route::post('/test-multiplication', 'Site\TestController@store')->name('multiplication');
     Route::get('/report-test-multiplication', 'Site\TestController@report')->name('report-mult');
-    Route::get('/tablica', 'Site\TestController@tablica')->name('tablica');
 
     //AJAX
     Route::get('/ajax-multiplication', 'Site\AjaxController@index')->name('ajax-mult');
@@ -42,7 +44,7 @@ Route::group([
 //Админка
 Route::group([
     'prefix' => 'admin',
-    'middleware' => ['web', 'auth'],
+    'middleware' => ['web', 'auth', 'status'],
 ], function () {
 
     //Путь: /admin

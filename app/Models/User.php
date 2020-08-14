@@ -58,4 +58,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Test', 'test_user');
     }
 
+    public function isAdministrator()
+    {
+        return ($this->login === 'vetkharkov');
+    }
+
+
+
 }

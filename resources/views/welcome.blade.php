@@ -4,27 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Tests</title>
+    <title>Тесты</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Scripts -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-    <script src="{{ asset('js/jquery.ripples.js') }}"></script>
-
     <!-- Styles -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('fab-admin/main/css/master_style.css') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
 
+    <!-- Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/jquery.ripples.js') }}"></script>
     <style>
-        * { margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         html {
             height: 100%;
         }
@@ -168,13 +174,29 @@
             color: rgb(250, 250, 253);
         }
 
+        .hot {
+            background-image: url({{ asset('uploads/images/hotpng.png') }});
+            background-size: contain;
+            /*background-position: 50% 0;*/
+            width: 280px;
+            height: 200px;
+        }
+
+        .hot a {
+            color: #1abe0a;
+            font-size: 20px;
+            position: relative; /* Абсолютное позиционирование */
+            left: 85px;
+            top: 67px;
+        }
+
+
+
 
     </style>
 
 </head>
 <body>
-
-
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -187,14 +209,18 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            {{--<ul class="navbar-nav mr-auto">--}}
-                {{--<li></li>--}}
-            {{--</ul>--}}
+        {{--<ul class="navbar-nav mr-auto">--}}
+        {{--<li></li>--}}
+        {{--</ul>--}}
 
-            <!-- Right Side Of Navbar -->
+        <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/tablica') }}">Таблица умножения</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
@@ -214,10 +240,12 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                            <a class="dropdown-item" href="{{ url('/admin') }}">Adminzone</a>
-                            <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
-                            <a class="dropdown-item" href="{{ url('/statistic') }}">Statistic</a>
+                            @if(Auth()->user()->isAdministrator())
+                                <a class="dropdown-item" href="{{ url('/admin') }}">Админка</a>
+                            @endif
+                            <a class="dropdown-item" href="{{ url('/profile') }}">Профиль</a>
+                            <a class="dropdown-item" href="{{ url('/statistic') }}">Статистика</a>
+                            <a class="dropdown-item" href="{{ url('/tablica') }}">Таблица умножения</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -238,7 +266,7 @@
 
 <div class="container">
 
-    {{--<h1 class="text-center word">Тесты на проверку знания таблицы умножения</h1>--}}
+    <h1 class="text-center word">Тесты на проверку знания таблицы умножения</h1>
     <div class="word text-center">
         <span>Т</span>
         <span>е</span>
@@ -249,75 +277,28 @@
 
     <div class="row">
 
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="box p-60 text-center border-primary" style="margin-top:0px">
-                <h4 class="text-primary text-uppercase">Уровень-1</h4>
-                <br>
-                <p>Самый лёгкий тест</p>
-                <p>Включает в себя</p>
-                <br>
-                <h3 class="price text-primary">
-                    10
-                    <span>вопросов</span>
-                </h3>
-                <a class="btn btn-outline btn-primary" href="{{ route('ajax-mult') }}?c=10">
-                    <i class="fa fa-play"></i> Начать
-                </a>
-
-            </div>
+        <div class="hot">
+            <a href="{{ route('ajax-mult') }}?c=10">
+                <i class="fa fa-play"></i> 10 заданий
+            </a>
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="box p-60 text-center bg-warning">
-                <h4 class="text-white text-uppercase">Уровень-2</h4>
-                <br>
-                <p>Тест</p>
-                <p>Включает в себя</p>
-                <br>
-                <h3 class="price text-white">
-                    25
-                    <span class="text-white">вопросов</span>
-                </h3>
-                <a class="btn btn-outline btn-light" href="{{ route('ajax-mult') }}?c=25">
-                    <i class="fa fa-play"></i> Начать
-                </a>
-            </div>
+        <div class="hot">
+            <a style="color: orangered" href="{{ route('ajax-mult') }}?c=25">
+                <i class="fa fa-play"></i> 25 заданий
+            </a>
         </div>
 
-
-
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="box p-60 text-center bg-success">
-                <h4 class="text-white text-uppercase">Уровень-3</h4>
-                <br>
-                <p>Тест</p>
-                <p>Включает в себя</p>
-                <br>
-                <h3 class="price text-white">
-                    50
-                    <span class="text-white">вопросов</span>
-                </h3>
-                <a class="btn btn-outline btn-light" href="{{ route('ajax-mult') }}?c=50">
-                    <i class="fa fa-play"></i> Начать
-                </a>
-            </div>
+        <div class="hot">
+            <a style="color: blue" href="{{ route('ajax-mult') }}?c=50">
+                <i class="fa fa-play"></i> 50 заданий
+            </a>
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="box p-60 text-col-sm-6 text-center bg-danger">
-                <h4 class="text-white text-uppercase">Уровень-4</h4>
-                <br>
-                <p>Самый сложный тест</p>
-                <p>Включает в себя</p>
-                <br>
-                <h3 class="price text-white">
-                    100
-                    <span class="text-white">вопросов</span>
-                </h3>
-                <a class="btn btn-outline btn-light" href="{{ route('ajax-mult') }}?c=100">
-                    <i class="fa fa-play"></i> Начать
-                </a>
-            </div>
+        <div class="hot">
+            <a style="color: red" href="{{ route('ajax-mult') }}?c=100">
+                <i class="fa fa-play"></i> 100 заданий
+            </a>
         </div>
 
     </div>
@@ -355,13 +336,17 @@
         // Initial animation
         setTimeout(() => {
             span.classList.add('active');
-        }, 750 * (idx+1))
+        }, 750 * (idx + 1))
     });
 
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 
 </body>
