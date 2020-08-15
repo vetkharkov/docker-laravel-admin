@@ -24,6 +24,8 @@
                         <br>
                         @if( $testSuccess > 0 or $testFail > 0)
                             <div id="statistic"></div>
+                            <p>Общее время: <span>{{ $all_time }} сек.</span></p>
+                            <p>Среднее время, ответа на один вопрос: <span>{{ $all_time/$all_examples }} сек.</span></p>
                         @else
                             <p>Вы еще не проходили тесты</p>
                         @endif

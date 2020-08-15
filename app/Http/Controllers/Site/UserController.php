@@ -76,24 +76,37 @@ class UserController extends SiteController
             ->select('test_id')
             ->where('user_id', '=', $user->id)
             ->get()->toArray();
-
         foreach ($result as $key =>$value){
             $item[] = $value->test_id;
         }
 
         $test = DB::table('tests')
             ->select('examples', 'correct', 'fail')
-            ->where('examples', 10)
+//            ->where('examples', 10)
             ->whereIn('id', $item)
             ->get();
 
+        $all_time = DB::table('tests')
+            ->select('diff')
+            ->whereIn('id', $item)
+            ->get()->sum('diff');
+
+//        dd($all_time);
+        $all_examples = DB::table('tests')
+            ->select('examples')
+            ->whereIn('id', $item)
+            ->get()->sum('examples');
+//        dd($all_examples);
+//dd($all_time/$all_examples);
         foreach ($test as $key=>$item) {
             $testSuccess += $item->correct;
             $testFail += $item->fail;
         }
 
 
-        return view('site.user.statistic', compact('user', 'testSuccess', 'testFail'));
+
+
+        return view('site.user.statistic', compact('user', 'testSuccess', 'testFail', 'all_time', 'all_examples'));
     }
 
 }
